@@ -10,9 +10,9 @@
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.05);
   }
   .content {
-    padding: 0 15px 15px;
+    padding: 0 15px 100px;
     background-color: #fff;
-    height: 100vh;
+    min-height: calc(100vh - 60px);
     overflow: hidden;
     overflow-y: auto;
     ::ng-deep.ant-table-content {
