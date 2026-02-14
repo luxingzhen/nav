@@ -10,13 +10,15 @@
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.05);
   }
   .content {
-    padding: 0 15px 100px;
+    padding: 0 15px 80px;
     background-color: #fff;
     min-height: calc(100vh - 60px);
-    overflow: hidden;
-    overflow-y: auto;
+    overflow: visible;
     ::ng-deep.ant-table-content {
       overflow: auto;
+    }
+    ::ng-deep form {
+      padding-bottom: 80px;
     }
   }
   .sidebar {
