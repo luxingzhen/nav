@@ -9,20 +9,18 @@ const o = {
   cn: zh_CN,
 }
 
+const DEFAULT_LANGUAGE = 'zh-CN'
+
 export function getLocale(): string {
   try {
-    const localLang = localStorage.getItem(STORAGE_KEY_MAP.LANGUAGE)
-    if (localLang) {
-      return localLang
+    if (typeof localStorage !== 'undefined') {
+      const localLang = localStorage.getItem(STORAGE_KEY_MAP.LANGUAGE)
+      if (localLang) {
+        return localLang
+      }
     }
-    const s = settings()
-    if (s && s.language) {
-      return s.language
-    }
-  } catch (e) {
-    console.warn('Failed to get locale:', e)
-  }
-  return 'zh-CN'
+  } catch (e) {}
+  return DEFAULT_LANGUAGE
 }
 
 export function $t(s: string, map?: Record<string, any>): string {
