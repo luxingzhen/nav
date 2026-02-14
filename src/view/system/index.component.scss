@@ -20,6 +20,18 @@
     ::ng-deep form {
       padding-bottom: 80px;
     }
+    // Tabs 容器样式
+    ::ng-deep .ant-tabs {
+      .ant-tabs-nav-wrap {
+        overflow: visible;
+      }
+      .ant-tabs-nav-list {
+        flex-wrap: wrap;
+      }
+      .ant-tabs-content-holder {
+        overflow: visible;
+      }
+    }
   }
   .sidebar {
     position: sticky;

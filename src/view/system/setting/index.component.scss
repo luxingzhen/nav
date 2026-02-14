@@ -57,3 +57,20 @@
     min-height: 60px;
   }
 }
+
+// Tabs 样式修复
+::ng-deep .ant-tabs {
+  .ant-tabs-nav {
+    margin-bottom: 16px;
+    overflow-x: auto;
+
+    .ant-tabs-tab {
+      padding: 12px 16px;
+      white-space: nowrap;
+    }
+  }
+
+  .ant-tabs-content {
+    overflow: visible;
+  }
+}
