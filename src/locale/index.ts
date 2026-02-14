@@ -13,8 +13,6 @@ export function getLocale(): string {
   return localStorage.getItem(STORAGE_KEY_MAP.LANGUAGE) || settings().language
 }
 
-const l = getLocale()
-
 export function $t(s: string, map?: Record<string, any>): string {
   function replaceStr(s: string, map?: Record<string, any>) {
     if (map) {
@@ -24,6 +22,7 @@ export function $t(s: string, map?: Record<string, any>): string {
     }
     return s
   }
+  const l = getLocale()
   let result: string
   if (l === 'zh-CN') {
     result = o.cn[s]
@@ -37,7 +36,7 @@ export function $t(s: string, map?: Record<string, any>): string {
 }
 
 export function isZhCN(): boolean {
-  return l === 'zh-CN'
+  return getLocale() === 'zh-CN'
 }
 
 export default o
