@@ -282,25 +282,18 @@ export function getLocale(): string {
 }
 
 export function $t(s: string, map?: Record<string, any>): string {
-  function replaceStr(s: string, map?: Record<string, any>) {
-    if (map) {
-      for (const k in map) {
-        s = s.replaceAll(`{${k}}`, map[k])
-      }
-    }
+  const result = zhCN[s]
+  if (!result) {
     return s
   }
-  const l = getLocale()
-  let result: string
-  if (l === 'zh-CN') {
-    result = o['cn'][s]
-  } else {
-    result = o['en'][s] ?? o['cn'][s]
+  if (!map) {
+    return result
   }
-  if (!result || result.trim() === '') {
-    return s
+  let r = result
+  for (const k in map) {
+    r = r.replaceAll(`{${k}}`, map[k])
   }
-  return replaceStr(result, map)
+  return r
 }
 
 export function isZhCN(): boolean {
