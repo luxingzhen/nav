@@ -10,7 +10,19 @@ const o = {
 }
 
 export function getLocale(): string {
-  return localStorage.getItem(STORAGE_KEY_MAP.LANGUAGE) || settings().language
+  try {
+    const localLang = localStorage.getItem(STORAGE_KEY_MAP.LANGUAGE)
+    if (localLang) {
+      return localLang
+    }
+    const s = settings()
+    if (s && s.language) {
+      return s.language
+    }
+  } catch (e) {
+    console.warn('Failed to get locale:', e)
+  }
+  return 'zh-CN'
 }
 
 export function $t(s: string, map?: Record<string, any>): string {
