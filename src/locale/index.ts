@@ -24,10 +24,16 @@ export function $t(s: string, map?: Record<string, any>): string {
     }
     return s
   }
+  let result: string
   if (l === 'zh-CN') {
-    return replaceStr(o.cn[s], map)
+    result = o.cn[s]
+  } else {
+    result = o.en[s] ?? o.cn[s]
   }
-  return replaceStr(o.en[s] ?? o.cn[s], map)
+  if (!result || result.trim() === '') {
+    return s
+  }
+  return replaceStr(result, map)
 }
 
 export function isZhCN(): boolean {

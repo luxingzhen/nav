@@ -214,7 +214,8 @@ const english: Record<string, any> = {
   _spiderTip:
     'Crawling rules will be triggered every time saving, affecting the construction speed. Crawling and updating information may be necessary when necessary',
   _spiderQty: 'Concurrent quantity',
-  _spiderQtyTip: '',
+  _spiderQtyTip:
+    'The larger the number, the faster the speed, but the higher the probability of failure',
   _spiderNetTip:
     'Due to network factors, some websites may not be accessible and can be skipped directly. For reference only',
   _spiderBuildTip:
